@@ -21,6 +21,7 @@ CREATE TABLE Department(
 	dep_teleNo VARCHAR(14),
 	dep_OffLoc VARCHAR(30),
 	dep_chairp VARCHAR(9),
+	PRIMARY KEY(dep_No),
 	FOREIGN KEY (dep_chairp) REFERENCES Professors(pssn)[ON DELETE SET NULL | ON DELETE CASCADE]
 );
 
@@ -42,13 +43,13 @@ CREATE TABLE CrSection(
 	sect_meetDays VARCHAR(20),
 	sect_startTime VARCHAR(5),
 	sect_endTime VARCHAR(5),
-	PRIMARY KEY (cors_No, sect_Prof),
+	PRIMARY KEY	(cors_No, sect_Prof),
 	FOREIGN KEY (cors_No)   REFERENCES Course(crse_no)[ON DELETE SET NULL | ON DELETE CASCADE],
 	FOREIGN KEY (sect_Prof) REFERENCES Professors(pssn)[ON DELETE SET NULL | ON DELETE CASCADE]
 );
 
 CREATE TABLE Students(
-	stdnt_CWID NUMERIC(9) PRIMARY KEY,
+	stdnt_CWID NUMERIC(8) PRIMARY KEY,
 	stdnt_FName VARCHAR(20),
 	stdnt_Lname VARCHAR(20),
 	stdnt_fullName VARCHAR(30) AS (concat_ws(' ', stdnt_Fname, stdnt_Lname)),
@@ -60,14 +61,24 @@ CREATE TABLE Students(
 );
 
 CREATE TABLE EnrollRec(
-	er_Student VARCHAR(9),
-	er_crseNo VARCHAR(7),
-	er_sectNo VARCHAR(7),
-	er_Grade ENUM('A', 'B', 'C', 'D', 'F','W'),
+	er_Student VARCHAR(8) NOT NULL,
+	er_crseNo VARCHAR(7)  NOT NULL,
+	er_sectNo VARCHAR(7)  NOT NULL,
+	er_Grade ENUM('A+', 'A', 'A-', 'B+', 'B', 'B-','C+', 'C', 'C-','D','F', 'W'),
 	PRIMARY KEY(er_Student, er_crseNo, er_sectNo),
 	FOREIGN KEY (er_Student) REFERENCES Students(stdnt_CWID)[ON DELETE SET NULL | ON DELETE CASCADE],
 	FOREIGN KEY (er_crseNo)  REFERENCES Section(cors_No)[ON DELETE SET NULL | ON DELETE CASCADE],
-        FOREIGN KEY (er_sectNo)  REFERENCES Section(sect_No)[ON DELETE SET NULL | ON DELETE CASCADE]
+    FOREIGN KEY (er_sectNo)  REFERENCES Section(sect_No)[ON DELETE SET NULL | ON DELETE CASCADE]
 );
+
+INSERT INTO Students VALUES(88621587,'Francisco','Godoy',9499917091,'Computer Science', 'Mathematics');
+INSERT INTO Students VALUES(88624211,'Maxwell','Lebda',7146248774,'Computer Science', 'Mathematics');
+INSERT INTO Students VALUES(88626721,'Helena','Truang',921708825,'Computer Science', 'Mathematics');
+INSERT INTO Students VALUES(88620523,'Santiago','Gimenez',3126248534,'Physics', 'Spanish');
+INSERT INTO Students VALUES(88624099,'Chloe','Klein',9494046942,'Buisness', 'Communications');
+INSERT INTO Students VALUES(88624119,'Nils','Niestch',7142215711,'Computer Science', 'Mathematics');
+INSERT INTO Students VALUES(88644602,'Coby','Bryan',8180134587,'Computer Science', 'Mathematics');
+INSERT INTO Students VALUES(88625210,'Shad','Betar',714102332,'Computer Science', 'Mathematics');
+
 
 
