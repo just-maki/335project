@@ -71,14 +71,57 @@ CREATE TABLE EnrollRec(
     FOREIGN KEY (er_sectNo)  REFERENCES Section(sect_No)[ON DELETE SET NULL | ON DELETE CASCADE]
 );
 
-INSERT INTO Students VALUES(88621587,'Francisco','Godoy',9499917091,'Computer Science', 'Mathematics');
-INSERT INTO Students VALUES(88624211,'Maxwell','Lebda',7146248774,'Computer Science', 'Mathematics');
-INSERT INTO Students VALUES(88626721,'Helena','Truang',921708825,'Computer Science', 'Mathematics');
-INSERT INTO Students VALUES(88620523,'Santiago','Gimenez',3126248534,'Physics', 'Spanish');
-INSERT INTO Students VALUES(88624099,'Chloe','Klein',9494046942,'Buisness', 'Communications');
-INSERT INTO Students VALUES(88624119,'Nils','Niestch',7142215711,'Computer Science', 'Mathematics');
-INSERT INTO Students VALUES(88644602,'Coby','Bryan',8180134587,'Computer Science', 'Mathematics');
-INSERT INTO Students VALUES(88625210,'Shad','Betar',714102332,'Computer Science', 'Mathematics');
+INSERT INTO Students VALUES
+(88621587,'Francisco','Godoy',9499917091,'CS', 'MATH'),
+(88624211,'Maxwell','Lebda',7146248774,'CS', 'MATH'),
+(88626721,'Helena','Truang',921708825,'CS', 'MATH'),
+(88620523,'Santiago','Gimenez',3126248534,'CS', 'MATH'),
+(88624099,'Chloe','Klein',9494046942,'CS', 'MATH')
+(88624119,'Nils','Niestch',7142215711,'CS', 'MATH'),
+(88644602,'Coby','Bryan',8180134587,'CS', 'MATH'),
+(88625210,'Shad','Betar',714102332,'CS', 'MATH');
 
+INSERT INTO Department (dep_No, dep_Name, dep_teleNo, dep_OffLoc, dep_chairp) VALUES
+(101, 'CS', '949-123-4567', 'Engineering Building 101', '123456789'),
+(102, 'MATH', '714-234-5678', 'Science Building 202', '987654321');
 
+INSERT INTO Professors (pssn, pname, p_strtAdr, p_cityAdr, p_state, p_zipCode, p_areaCode, p_7digNo, p_Sex, p_Title, p_Salary, p_clgDeg) VALUES
+(123456789, 'Alan Turing', '123 Main St', 'Irvine', 'CA', 92697, 949, 1234567, 'Male', 'Professor', 150000, 'PhD'),
+(987654321, 'Grace Hopper', '456 Elm St', 'Fullerton', 'CA', 92831, 714, 2345678, 'Female', 'Professor', 140000, 'PhD'),
+(192837465, 'John von Neumann', '789 Maple St', 'Santa Ana', 'CA', 92701, 657, 3456789, 'Male', 'Professor', 145000, 'PhD');
 
+INSERT INTO Course (crse_No, crse_Title, crse_txtBook, crse_Units, crse_preReq, crse_depOffered) VALUES
+('CS101', 'Intro to CS', 'Introduction to Computer Science', 3, NULL, 'CS'),
+('CS102', 'Data Structures', 'Data Structures and Algorithms', 3, 'CS101', 'CS'),
+('MATH101', 'Calculus I', 'Calculus: Early Transcendentals', 4, NULL, 'Math'),
+('MATH102', 'Linear Algebra', 'Linear Algebra and Its Applications', 3, 'MATH101', 'Math');
+
+INSERT INTO CrSection (cors_No, sect_Prof, sect_No, sect_Classrm, sect_seatNo, sect_meetDays, sect_startTime, sect_endTime) VALUES
+('CS101', '123456789', 'CS101-01', 'CS Building 105', 30, 'MWF', '09:00', '10:15'),
+('CS102', '987654321', 'CS102-01', 'CS Building 106', 30, 'MWF', '10:30', '11:45'),
+('MATH101', '192837465', 'MATH101-01', 'Math Building 201', 35, 'TTh', '08:00', '09:30'),
+('MATH102', '987654321', 'MATH102-01', 'Math Building 202', 35, 'TTh', '10:00', '11:30'),
+('CS101', '123456789', 'CS101-02', 'CS Building 107', 30, 'MWF', '13:00', '14:15'),
+('MATH101', '192837465', 'MATH101-02', 'Math Building 203', 35, 'TTh', '13:00', '14:30');
+
+INSERT INTO EnrollRec (er_Student, er_crseNo, er_sectNo, er_Grade) VALUES
+('88621587', 'CS101', 'CS101-01', 'A'),
+('88624211', 'CS101', 'CS101-01', 'B'),
+('88626721', 'CS101', 'CS101-01', 'A-'),
+('88620523', 'CS102', 'CS102-01', 'B+'),
+('88624099', 'CS102', 'CS102-01', 'A'),
+('88624119', 'MATH101', 'MATH101-01', 'C'),
+('88644602', 'MATH101', 'MATH101-01', 'B'),
+('88625210', 'MATH102', 'MATH102-01', 'A'),
+('88621587', 'MATH102', 'MATH102-01', 'B+'),
+('88624211', 'CS101', 'CS101-02', 'A'),
+('88626721', 'CS101', 'CS101-02', 'B-'),
+('88620523', 'MATH101', 'MATH101-02', 'C+'),
+('88624099', 'MATH101', 'MATH101-02', 'B'),
+('88624119', 'MATH101', 'MATH101-02', 'A'),
+('88644602', 'CS101', 'CS101-01', 'B+'),
+('88625210', 'CS102', 'CS102-01', 'A'),
+('88621587', 'MATH101', 'MATH101-01', 'A-'),
+('88624211', 'MATH102', 'MATH102-01', 'B'),
+('88626721', 'CS101', 'CS101-02', 'A'),
+('88620523', 'MATH101', 'MATH101-02', 'B+');
