@@ -21,7 +21,6 @@ CREATE TABLE Department(
 	dep_teleNo VARCHAR(14),
 	dep_OffLoc VARCHAR(30),
 	dep_chairp VARCHAR(9),
-	PRIMARY KEY(dep_No),
 	FOREIGN KEY (dep_chairp) REFERENCES Professors(pssn)[ON DELETE SET NULL | ON DELETE CASCADE]
 );
 
@@ -43,7 +42,7 @@ CREATE TABLE CrSection(
 	sect_meetDays VARCHAR(20),
 	sect_startTime VARCHAR(5),
 	sect_endTime VARCHAR(5),
-	PRIMARY KEY	(cors_No, sect_Prof),
+	PRIMARY KEY (cors_No, sect_Prof),
 	FOREIGN KEY (cors_No)   REFERENCES Course(crse_no)[ON DELETE SET NULL | ON DELETE CASCADE],
 	FOREIGN KEY (sect_Prof) REFERENCES Professors(pssn)[ON DELETE SET NULL | ON DELETE CASCADE]
 );
@@ -68,7 +67,7 @@ CREATE TABLE EnrollRec(
 	PRIMARY KEY(er_Student, er_crseNo, er_sectNo),
 	FOREIGN KEY (er_Student) REFERENCES Students(stdnt_CWID)[ON DELETE SET NULL | ON DELETE CASCADE],
 	FOREIGN KEY (er_crseNo)  REFERENCES Section(cors_No)[ON DELETE SET NULL | ON DELETE CASCADE],
-    FOREIGN KEY (er_sectNo)  REFERENCES Section(sect_No)[ON DELETE SET NULL | ON DELETE CASCADE]
+        FOREIGN KEY (er_sectNo)  REFERENCES Section(sect_No)[ON DELETE SET NULL | ON DELETE CASCADE]
 );
 
 
