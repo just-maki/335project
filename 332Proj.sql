@@ -71,24 +71,14 @@ CREATE TABLE EnrollRec(
     FOREIGN KEY (er_sectNo)  REFERENCES Section(sect_No)[ON DELETE SET NULL | ON DELETE CASCADE]
 );
 
-INSERT INTO Students VALUES
-(88621587,'Francisco','Godoy',9499917091,'CS', 'MATH'),
-(88624211,'Maxwell','Lebda',7146248774,'CS', 'MATH'),
-(88626721,'Helena','Truang',921708825,'CS', 'MATH'),
-(88620523,'Santiago','Gimenez',3126248534,'CS', 'MATH'),
-(88624099,'Chloe','Klein',9494046942,'CS', 'MATH')
-(88624119,'Nils','Niestch',7142215711,'CS', 'MATH'),
-(88644602,'Coby','Bryan',8180134587,'CS', 'MATH'),
-(88625210,'Shad','Betar',714102332,'CS', 'MATH');
-
-INSERT INTO Department (dep_No, dep_Name, dep_teleNo, dep_OffLoc, dep_chairp) VALUES
-(101, 'CS', '949-123-4567', 'Engineering Building 101', '123456789'),
-(102, 'MATH', '714-234-5678', 'Science Building 202', '987654321');
-
 INSERT INTO Professors (pssn, pname, p_strtAdr, p_cityAdr, p_state, p_zipCode, p_areaCode, p_7digNo, p_Sex, p_Title, p_Salary, p_clgDeg) VALUES
 (123456789, 'Alan Turing', '123 Main St', 'Irvine', 'CA', 92697, 949, 1234567, 'Male', 'Professor', 150000, 'PhD'),
 (987654321, 'Grace Hopper', '456 Elm St', 'Fullerton', 'CA', 92831, 714, 2345678, 'Female', 'Professor', 140000, 'PhD'),
 (192837465, 'John von Neumann', '789 Maple St', 'Santa Ana', 'CA', 92701, 657, 3456789, 'Male', 'Professor', 145000, 'PhD');
+
+INSERT INTO Department (dep_No, dep_Name, dep_teleNo, dep_OffLoc, dep_chairp) VALUES
+(101, 'CS', '949-123-4567', 'Engineering Building 101', '123456789'),
+(102, 'MATH', '714-234-5678', 'Science Building 202', '987654321');
 
 INSERT INTO Course (crse_No, crse_Title, crse_txtBook, crse_Units, crse_preReq, crse_depOffered) VALUES
 ('CS101', 'Intro to CS', 'Introduction to Computer Science', 3, NULL, 'CS'),
@@ -103,6 +93,16 @@ INSERT INTO CrSection (cors_No, sect_Prof, sect_No, sect_Classrm, sect_seatNo, s
 ('MATH102', '987654321', 'MATH102-01', 'Math Building 202', 35, 'TTh', '10:00', '11:30'),
 ('CS101', '123456789', 'CS101-02', 'CS Building 107', 30, 'MWF', '13:00', '14:15'),
 ('MATH101', '192837465', 'MATH101-02', 'Math Building 203', 35, 'TTh', '13:00', '14:30');
+
+INSERT INTO Students VALUES
+(88621587,'Francisco','Godoy',9499917091,'CS', 'MATH'),
+(88624211,'Maxwell','Lebda',7146248774,'CS', 'MATH'),
+(88626721,'Helena','Truang',921708825,'CS', 'MATH'),
+(88620523,'Santiago','Gimenez',3126248534,'CS', 'MATH'),
+(88624099,'Chloe','Klein',9494046942,'CS', 'MATH')
+(88624119,'Nils','Niestch',7142215711,'CS', 'MATH'),
+(88644602,'Coby','Bryan',8180134587,'CS', 'MATH'),
+(88625210,'Shad','Betar',714102332,'CS', 'MATH');
 
 INSERT INTO EnrollRec (er_Student, er_crseNo, er_sectNo, er_Grade) VALUES
 ('88621587', 'CS101', 'CS101-01', 'A'),
