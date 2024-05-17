@@ -1,23 +1,29 @@
+<!DOCTYPE html>
 <html lang="en">
 <html>
-    <body>
-        <form action="332site.php" method="POST">
+    <body style="background-color: rgb(104, 210, 255);">
+        <h1>By professors<h1>
+
+        <form action="professor.php" method="POST">
             Enter the social security number of the professor you want to search for: 
             <input type="text" name="sno" />
             <input type="submit" />
         </form>
-        <form action="332site.php" method="POST">
-            Enter the couse number and section numer you want to search for: 
+        <form action="course.php" method="POST">
+            Enter the couse number and section number you want to search for: 
             <input type="text" name="cno" />
             <input type="text" name="secno" />
             <input type="submit" />
         </form>
-        <form action="332site.php" method="POST">
+
+        <h2>By students <h2>
+
+        <form action="student_a.php" method="POST">
             Enter the couse number you want to search for: 
             <input type="text" name="cno" />
             <input type="submit" />
         </form>
-        <form action="332site.php" method="POST">
+        <form action="student_b.php" method="POST">
             Enter the CWID for the student you want to search for: 
             <input type="text" name="CWID" />
             <input type="submit" />
