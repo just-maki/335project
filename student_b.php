@@ -3,15 +3,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include("conn.php");
-    
-    $stdnt_CWID = "";
-    $result = "";
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
 
         $stdnt_CWID = $_POST["student_campus_id"];
-
         $query = 
         "   SELECT c.crse_Title AS Course_Title, c.crse_No AS Course_Number, er.er_Grade AS Grade
             FROM EnrollRec er
@@ -33,12 +26,7 @@ include("conn.php");
         if ($result_set->num_rows > 0) {
             $result = $result_set->fetch_all(MYSQLI_ASSOC);
         }
-
-        
-
         $stmt->close();
-
-}
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +34,7 @@ include("conn.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professor SSN</title>
+    <title>COURSES FOR THIS STUDENT</title>
 </head>
 <body>
     <h2>Academic history for <?php echo $student_campus_id?></h2>
@@ -59,5 +47,4 @@ include("conn.php");
     <?php endif; ?>
 </body>
 </html>
-
 
