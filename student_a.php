@@ -34,9 +34,6 @@ include("conn.php");
         if ($result_set->num_rows > 0) {
             $result = $result_set->fetch_all(MYSQLI_ASSOC);
         }
-
-        
-
         $stmt->close();
 
 }
@@ -47,7 +44,7 @@ include("conn.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professor SSN</title>
+    <title>COURSE SECTION</SECTION></title>
 </head>
 <body>
     <h2>Sections for Course <?php echo $crse_number?></h2>
